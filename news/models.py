@@ -7,8 +7,8 @@ class Event(models.Model):
     def __str__(self):
         return self.eventName
 
-class News(models.Model):
-    newsTitle = models.CharField(max_length=1000)
+class Article(models.Model):
+    articleTitle = models.CharField(max_length=1000)
     eventID = models.ForeignKey('Event', on_delete=models.SET_NULL, null=True)
     URL = models.CharField(max_length=1000)
 
@@ -22,8 +22,8 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-class NewsTag(models.Model):
-    newsId = models.ForeignKey('News', on_delete = models.CASCADE)
+class ArticleTag(models.Model):
+    articleId = models.ForeignKey('Article', on_delete = models.CASCADE)
     tagId = models.ForeignKey('Tag', on_delete = models.CASCADE)
 
     def __str__(self):
