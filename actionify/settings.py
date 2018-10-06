@@ -54,6 +54,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'actionify.urls'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]
 
 TEMPLATES = [
     {
