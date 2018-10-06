@@ -41,28 +41,28 @@ class Action(models.Model):
     actionType = models.CharField(max_length=20, choices=ACTION_TYPES, default="petition")
     actionURL = models.CharField(max_length=1000)
     votes = models.IntegerField(null=True, blank=True)
-    creatorID = models.ForeignKey('User', null=True, on_delete = models.SET_NULL)
+    #creatorID = models.ForeignKey('User', null=True, on_delete = models.SET_NULL)
 
     def __str__(self):
         return self.actionURL
 
 class UserAction(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    #user = models.ForeignKey('User', on_delete=models.CASCADE)
     actionID = models.ForeignKey('Action', on_delete=models.CASCADE)
     createdAt = models.DateTimeField(null=True, blank=True)
     experience = models.CharField(max_length=500, blank=True, null=True)
     def __str__(self):
         return self.user.username + ": " + self.actionID.actionURL
-    class Meta:
-    	unique_together = ('user','actionID',)
+    #class Meta:
+    	#unique_together = ('user','actionID',)
 
 class SpamAction(models.Model):
     actionID = models.ForeignKey('Action', on_delete = models.CASCADE)
-    userID = models.ForeignKey('User', on_delete = models.CASCADE)
+    #userID = models.ForeignKey('User', on_delete = models.CASCADE)
     def __str__(self):
         return self.userID.username + " marks spam: " + self.actionID.actionURL
-    class Meta:
-    	unique_together = ('actionID','userID',)
+    #class Meta:
+    	#unique_together = ('actionID','userID',)
 class EventAction(models.Model):
     eventID = models.ForeignKey('Event', on_delete=models.CASCADE)
     actionID = models.ForeignKey('Action', on_delete=models.CASCADE)
@@ -79,18 +79,18 @@ class EventTag(models.Model):
     	unique_together = ('eventID','tagID',)
 
 class WatchedEvent(models.Model):
-    userID = models.ForeignKey('User', on_delete=models.CASCADE)
+    #userID = models.ForeignKey('User', on_delete=models.CASCADE)
     eventID = models.ForeignKey('Event', on_delete=models.CASCADE)
     def __str__(self):
         return self.userID.username + ": " + self.eventID.eventName
-    class Meta:
-    	unique_together = ('userID','eventID',)
+    #class Meta:
+    	#unique_together = ('userID','eventID',)
 
 class UserVote(models.Model):
-    userID = models.ForeignKey('User', on_delete=models.CASCADE)
+    #userID = models.ForeignKey('User', on_delete=models.CASCADE)
     actionID = models.ForeignKey('Action', on_delete=models.CASCADE)
     upvote = models.BooleanField()
-    def __str__(self):
-        return self.userID.username + ": " +str(self.upvote)+ " " + self.actionID.actionURL
-    class Meta:
-    	unique_together = ('userID','actionID',)
+    #def __str__(self):
+        #return self.userID.username + ": " +str(self.upvote)+ " " + self.actionID.actionURL
+    #class Meta:
+    	#unique_together = ('userID','actionID',)
