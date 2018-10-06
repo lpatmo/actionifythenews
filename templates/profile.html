@@ -9,28 +9,28 @@
     <section id="events">
       <p>Tags you are following:</p>
       <ul>
-      {% if tags %}
-      {% for tag in tags %}
-         <li class="tag"><a href="#">{{tag.name}}</a></li>
-      {% endfor %}
-      {% endif %}
-    </ul>
+        <li class="tag">Climate change</li>
+        <li>Supreme Court</li>
+        <li>Natural disasters</li>
+        <li>War</li>
+      </ul>
     <p>Choose an event you want to take action on:</p>
          <ul>
     {% for event in events %}
+
        <li class="event"><a href="#">{{event.eventName}}</a></li>
-    {% endfor %}
+  {% endfor %}
      </ul>
    </section>
    <section id="actions">
      <div class="action">
-          example
+
      </div>
    </section>
  </div>
 
 {% else %}
-  <p>You are not logged in</p>
+  <p>You are not logged in!</p>
   <a href="{% url 'login' %}">login</a> |
   <a href="{% url 'signup' %}">signup</a>
 {% endif %}

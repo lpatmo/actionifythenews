@@ -38,9 +38,11 @@ class Action(models.Model):
         ('attend_an_event', 'Attend an Event'),
         ('other', 'Other'),
     )
+    actionTitle = models.CharField(max_length=1000, null=True, blank=True)
     actionType = models.CharField(max_length=20, choices=ACTION_TYPES, default="petition")
     actionURL = models.CharField(max_length=1000)
     votes = models.IntegerField(null=True, blank=True)
+    eventID = models.ForeignKey('Event', on_delete=models.CASCADE)
     #creatorID = models.ForeignKey('User', null=True, on_delete = models.SET_NULL)
 
     def __str__(self):
