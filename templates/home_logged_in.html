@@ -1,0 +1,6 @@
+{% extends 'home.html' %}
+
+{% block home_logged_in %}
+Hi {{ user.username }}! :)
+<p><a href="{% url 'logout' %}">logout</a></p>
+{% endblock %}
