@@ -160,7 +160,7 @@ header nav li {
 }
 
 .background-image {
-  background-image: url('../img/bg-1.jpg');
+  background-image: url('img/bg-1.jpg');
   background-size: cover;
   animation-name: switchImages;
   animation-duration: 20s;
@@ -177,14 +177,14 @@ header nav li {
 
 @keyframes switchImages {
   25% {
-    background-image: url('../img/bg-2.jpg');
+    background-image: url('img/bg-2.jpg');
   }
   50% {
-    background-image: url('../img/bg-3.jpg');
+    background-image: url('img/bg-3.jpg');
     background-position-y: -200px;
   }
   75% {
-    background-image: url('../img/bg-4.jpg');
+    background-image: url('img/bg-4.jpg');
   }
 }
 

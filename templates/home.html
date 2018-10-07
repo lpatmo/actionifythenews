@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Welcome, Linda!{% endblock %}
+
 
 {% block content %}
+
 {% if user.is_authenticated %}
+{% block title %}Welcome, Linda!{% endblock %}
   <div id="wrapper">
 
     <section id="events">
@@ -59,8 +61,10 @@
  </div>
 
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a> |
-  <a href="{% url 'signup' %}">signup</a>
+
+
+
+  
 {% endif %}
+
 {% endblock %}
