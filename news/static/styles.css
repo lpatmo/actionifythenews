@@ -23,6 +23,10 @@ a {
 }
 
 a:hover {
+	text-decoration: none;
+}
+
+a:hover {
 	opacity: 1;
 }
 
@@ -304,6 +308,45 @@ div.content li.event a:hover {
  }
 
 }
-textarea{
-	width:80%;
+
+div.action {
+	padding: 15px;
+}
+
+div.action a {
+	color: #428cf4;
+}
+
+div.action h1.eventTitle {
+	margin: 0px;
+}
+
+.fa-twitter:hover, .fa-facebook:hover {
+	cursor: pointer;
+}
+.fa-twitter:hover {
+	color: #1dcaff;
+}
+.fa-money {
+	color: green;
+}
+
+span.link {
+	color: #111;
+}
+span.coins {
+	color: green;
+}
+textarea {
+	width: 100%;
+}
+.action-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+button {
+	padding: 5px 10px;
+	border: 1px solid #3f51b1;
+	font-size: 18px;
 }

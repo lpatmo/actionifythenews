@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Welcome, Linda!{% endblock %}
+{% block title %}Welcome, {{ user.get_username }}!{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
@@ -24,36 +24,25 @@
    </section>
    <section id="actions">
      <div class="action">
-      <div class="container">
-        <h1 class="eventTitle">Batman defeats Superman!</h1>
-        <div class="row">
-          <div class="col-xs-1">
-            DonationSymbol
+       <div class="action-header">
+          <h1 class="eventTitle"> <i class="fa fa-money"></i> Donate to Flint Water Fund</h1>
+          <div class="action-social-media">
+            <i class="fa fa-twitter fa-2x"></i>
+            <i class="fa fa-facebook fa-2x"></i>
+            <span class="coins">1+</span>
           </div>
-          <div class="col-xs-8">
-            Donate to the Wayne Charity Foundation!
-          </div>
-          <div class="col-xs-1-offset-1">
-            Social Media Buttons
-          </div>
+
         </div>
-        <div class="row">
-          <div class="col-xs-4">
-            <input type="checkbox"> <span>I took this action.</span>
-          </div>
-          <div class=.col-offset-3>
-          </div>
-          <div class="col-xs-3">
-          Coins+
-          </div>
-        </div>
-    <div>
-      <span>What was your experience like?</span>
-      <textarea></textarea>
-      <button>Submit</button>
-      <button>Show me the next action</button>
-    </div>
-    </div>
+        <span class="link">http://www.unitedwaygenesee.org/flintwaterfund</span>
+        <p><label><input type="checkbox" checked="checked">I took this action. </label>
+        <span class="coins"><i class="fa fa-coin"></i>Coins 3+</span>
+        <br />
+        <label>What was your experience like?</label>
+        <textarea></textarea>
+        <button>Submit</button>
+        <p>
+          <a href="#">Show me the next action <i class="fa fa-arrow-right"></i></a>
+        </p>
      </div>
    </section>
  </div>
