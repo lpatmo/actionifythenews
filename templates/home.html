@@ -3,7 +3,6 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-{% block title %}Welcome,  {{ user.get_username }}!{% endblock %}
   <div id="wrapper">
 
     <section id="events">
@@ -48,9 +47,11 @@
  </div>
 
 {% else %}
+<section class="hero">
+  <div class="background-image">
 
-
-
+  </div>
+</section>
 
 {% endif %}
 
