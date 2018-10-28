@@ -1,5 +1,5 @@
 from news.models import Event, Action, Tag, EventAction
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 def index(request):
     """View function for home page of site."""
@@ -19,3 +19,7 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'home.html', context=context)
+
+def event_detail(request, pk):
+    event = get_object_or_404(Event, pk=pk)
+    return render(request, 'event/event_detail.html', {'event': event})

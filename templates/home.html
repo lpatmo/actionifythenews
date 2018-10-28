@@ -6,18 +6,9 @@
   <div id="wrapper">
 
     <section id="events">
-      <p>Tags you are following:</p>
-      <ul>
-      {% if tags %}
-      {% for tag in tags %}
-         <li class="tag"><a href="#">{{tag.name}}</a></li>
-      {% endfor %}
-      {% endif %}
-    </ul>
-    <p>Choose an event you want to take action on:</p>
-         <ul>
+        <ul>
     {% for event in events %}
-       <li class="event"><a href="#">{{event.eventName}}</a></li>
+       <li class="event"><a href="{% url 'event_detail' pk=event.pk %}">{{event.eventName}}</a></li>
     {% endfor %}
      </ul>
    </section>
