@@ -42,6 +42,7 @@ class Action(models.Model):
     actionType = models.CharField(max_length=20, choices=ACTION_TYPES, default="petition")
     actionURL = models.CharField(max_length=1000)
     votes = models.IntegerField(null=True, blank=True)
+    #events = models.ManyToManyField(Event)
     #creatorID = models.ForeignKey('User', null=True, on_delete = models.SET_NULL)
 
     def __str__(self):
@@ -64,6 +65,11 @@ class SpamAction(models.Model):
         return self.userID.username + " marks spam: " + self.actionID.actionURL
     #class Meta:
     	#unique_together = ('actionID','userID',)
+
+# from news.models import Action, EventAction
+# select * from Action left join EventAction ON Action.id = EventAction.actionID WHERE EventAction.eventId = [ ];
+# Action.objects.filter(EventAction.eventID)
+
 class EventAction(models.Model):
     eventID = models.ForeignKey('Event', on_delete=models.CASCADE)
     actionID = models.ForeignKey('Action', on_delete=models.CASCADE)

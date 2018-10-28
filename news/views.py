@@ -4,7 +4,6 @@ from django.shortcuts import render
 def index(request):
     """View function for home page of site."""
 
-
     events = Event.objects.all()
     tags = Tag.objects.all()
     actions_count = Action.objects.all().count()
