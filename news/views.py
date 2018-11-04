@@ -7,14 +7,13 @@ def index(request):
     events = Event.objects.all()
     tags = Tag.objects.all()
     actions_count = Action.objects.all().count()
-    event_actions = EventAction.objects.values()
+    actions = events.prefetch_related('actions')
 
 
     context = {
         'actions_count': actions_count,
         'events': events,
         'tags': tags,
-        'event_actions': event_actions
     }
 
     # Render the HTML template index.html with the data in the context variable

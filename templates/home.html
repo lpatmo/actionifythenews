@@ -13,6 +13,9 @@
      </ul>
    </section>
    <section id="actions">
+    {% for action in actions %}
+      <p>testing retrieval of {{action.actionTitle}}:{{action.actionURL}}</p>
+    {% endfor %}
      <div class="action">
        <div class="action-header">
           <h1 class="eventTitle"> <i class="fa fa-money"></i> Donate to Flint Water Fund</h1>
