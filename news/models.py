@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Event(models.Model):
     eventName = models.CharField(unique=True, max_length=200)
-
+    actions = models.ManyToManyField(Action)
     def __str__(self):
         return self.eventName
 
