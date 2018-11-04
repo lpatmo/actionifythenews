@@ -1,5 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
+class Action(models.Model):
+    ACTION_TYPES = (
+        ('petition', 'Petition'),
+        ('donation', 'Donation'),
+        ('vote', 'Vote'),
+        ('call', 'Call'),
+        ('attend_an_event', 'Attend an Event'),
+        ('other', 'Other'),
+    )
+    actionTitle = models.CharField(max_length=1000, null=True, blank=True)
+    actionType = models.CharField(max_length=20, choices=ACTION_TYPES, default="petition")
+    actionURL = models.CharField(max_length=1000)
+    votes = models.IntegerField(null=True, blank=True)
+    #events = models.ManyToManyField(Event)
+    #creatorID = models.ForeignKey('User', null=True, on_delete = models.SET_NULL)
+
+    def __str__(self):
+        return self.actionURL
+
 
 class Event(models.Model):
     eventName = models.CharField(unique=True, max_length=200)
@@ -29,24 +48,7 @@ class ArticleTag(models.Model):
     def __str__(self):
         return self.newsId.URL + ": " + self.tagID.name
 
-class Action(models.Model):
-    ACTION_TYPES = (
-        ('petition', 'Petition'),
-        ('donation', 'Donation'),
-        ('vote', 'Vote'),
-        ('call', 'Call'),
-        ('attend_an_event', 'Attend an Event'),
-        ('other', 'Other'),
-    )
-    actionTitle = models.CharField(max_length=1000, null=True, blank=True)
-    actionType = models.CharField(max_length=20, choices=ACTION_TYPES, default="petition")
-    actionURL = models.CharField(max_length=1000)
-    votes = models.IntegerField(null=True, blank=True)
-    #events = models.ManyToManyField(Event)
-    #creatorID = models.ForeignKey('User', null=True, on_delete = models.SET_NULL)
 
-    def __str__(self):
-        return self.actionURL
 
 class UserAction(models.Model):
     #user = models.ForeignKey('User', on_delete=models.CASCADE)
